@@ -1,196 +1,248 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; -webkit-text-stroke: #000000; min-height: 18.0px}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8" />
+  <title>Mi Habit Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 24px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #020617;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid #1f2937;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .add-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .add-row input {
+      flex: 1;
+      min-width: 200px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #4b5563;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    .add-row button {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      background: #6366f1;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px;
+      text-align: center;
+    }
+    th {
+      background: #111827;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    td:first-child, th:first-child {
+      text-align: left;
+      min-width: 160px;
+    }
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .delete-btn {
+      background: #b91c1c;
+      border: none;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .progress-cell {
+      min-width: 70px;
+    }
+    @media (max-width: 700px) {
+      body {
+        padding: 12px;
+      }
+      table {
+        font-size: 12px;
+      }
+      td:first-child, th:first-child {
+        min-width: 120px;
+      }
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="es"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Mi Habit Tracker&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #0f172a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #e5e7eb;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 900px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #020617;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #1f2937;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 0 20px 40px rgba(0,0,0,0.4);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.add-row {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.add-row input {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 8px 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #4b5563;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #020617;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #e5e7eb;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.add-row button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 8px 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #6366f1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>table {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-collapse: collapse;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>th, td {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #1f2937;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>th {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #111827;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: sticky;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>td:first-child, th:first-child {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: left;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>min-width: 160px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input[type="checkbox"] {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.delete-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #b91c1c;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 4px 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.progress-cell {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>min-width: 70px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;✨ Mi Habit Tracker&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="add-row"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input id="habit-name" type="text" placeholder="Nuevo hábito (ej: Leer 20 min)" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="addHabit()"&gt;Añadir&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;table id="habit-table"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;thead&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Hábito&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Lun&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Mar&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Mié&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Jue&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Vie&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Sáb&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Dom&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;Progreso&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;th&gt;&lt;/th&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/thead&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;tbody&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Filas se generan con JS --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/tbody&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const tbody = document.querySelector("#habit-table tbody");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const initialHabits = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Beber 2L de agua",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Leer 20 minutos",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>"Hacer ejercicio",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function createRow(name) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const tr = document.createElement("tr");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const nameTd = document.createElement("td");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>nameTd.textContent = name;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tr.appendChild(nameTd);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>for (let i = 0; i &lt; 7; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const td = document.createElement("td");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const checkbox = document.createElement("input");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>checkbox.type = "checkbox";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>checkbox.addEventListener("change", updateProgress);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>td.appendChild(checkbox);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>tr.appendChild(td);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const progressTd = document.createElement("td");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>progressTd.className = "progress-cell";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>progressTd.textContent = "0%";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tr.appendChild(progressTd);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const deleteTd = document.createElement("td");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const deleteBtn = document.createElement("button");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>deleteBtn.textContent = "✕";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>deleteBtn.className = "delete-btn";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>deleteBtn.onclick = () =&gt; tr.remove();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>deleteTd.appendChild(deleteBtn);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tr.appendChild(deleteTd);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>return tr;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updateProgress() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const row = this.closest("tr");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const checkboxes = row.querySelectorAll('input[type="checkbox"]');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const checked = Array.from(checkboxes).filter(c =&gt; c.checked).length;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const percent = Math.round((checked / 7) * 100);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const progressCell = row.querySelector(".progress-cell");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>progressCell.textContent = percent + "%";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function addHabit() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const input = document.getElementById("habit-name");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const name = input.value.trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!name) return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tbody.appendChild(createRow(name));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>input.value = "";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Inicial</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>initialHabits.forEach(h =&gt; tbody.appendChild(createRow(h)));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+  <h1>✨ Mi Habit Tracker</h1>
+  <div class="container">
+    <p style="margin-top:0; margin-bottom:12px; color:#9ca3af; font-size:14px;">
+      Tus datos se guardan automáticamente en este dispositivo (navegador). 
+      Si abrís este link en otra compu o borrás los datos del navegador, se reinicia.
+    </p>
+
+    <div class="add-row">
+      <input id="habit-name" type="text" placeholder="Nuevo hábito (ej: Leer 20 min)" />
+      <button onclick="addHabit()">Añadir</button>
+    </div>
+
+    <table id="habit-table">
+      <thead>
+        <tr>
+          <th>Hábito</th>
+          <th>Lun</th>
+          <th>Mar</th>
+          <th>Mié</th>
+          <th>Jue</th>
+          <th>Vie</th>
+          <th>Sáb</th>
+          <th>Dom</th>
+          <th>Progreso</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas se generan con JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "habit-tracker-data-v1";
+    const tbody = document.querySelector("#habit-table tbody");
+
+    // Cargar datos guardados o usar iniciales
+    function loadHabits() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          return JSON.parse(saved);
+        }
+      } catch (e) {
+        console.error("Error leyendo localStorage", e);
+      }
+      return [
+        { name: "Beber 2L de agua", days: [false, false, false, false, false, false, false] },
+        { name: "Leer 20 minutos",    days: [false, false, false, false, false, false, false] },
+        { name: "Hacer ejercicio",    days: [false, false, false, false, false, false, false] },
+      ];
+    }
+
+    function saveHabits(habits) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(habits));
+      } catch (e) {
+        console.error("Error guardando en localStorage", e);
+      }
+    }
+
+    let habits = loadHabits();
+
+    function getCurrentHabitsFromTable() {
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      return rows.map(row => {
+        const name = row.querySelector(".habit-name").textContent;
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+        const days = Array.from(checkboxes).map(c => c.checked);
+        return { name, days };
+      });
+    }
+
+    function createRow(habit) {
+      const tr = document.createElement("tr");
+
+      const nameTd = document.createElement("td");
+      nameTd.textContent = habit.name;
+      nameTd.className = "habit-name";
+      tr.appendChild(nameTd);
+
+      for (let i = 0; i < 7; i++) {
+        const td = document.createElement("td");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = habit.days[i] || false;
+        checkbox.addEventListener("change", () => {
+          updateProgressForRow(tr);
+          habits = getCurrentHabitsFromTable();
+          saveHabits(habits);
+        });
+        td.appendChild(checkbox);
+        tr.appendChild(td);
+      }
+
+      const progressTd = document.createElement("td");
+      progressTd.className = "progress-cell";
+      tr.appendChild(progressTd);
+
+      const deleteTd = document.createElement("td");
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "✕";
+      deleteBtn.className = "delete-btn";
+      deleteBtn.onclick = () => {
+        tr.remove();
+        habits = getCurrentHabitsFromTable();
+        saveHabits(habits);
+      };
+      deleteTd.appendChild(deleteBtn);
+      tr.appendChild(deleteTd);
+
+      updateProgressForRow(tr);
+      return tr;
+    }
+
+    function updateProgressForRow(row) {
+      const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+      const checked = Array.from(checkboxes).filter(c => c.checked).length;
+      const percent = Math.round((checked / 7) * 100);
+      const progressCell = row.querySelector(".progress-cell");
+      progressCell.textContent = percent + "%";
+    }
+
+    function renderHabits() {
+      tbody.innerHTML = "";
+      habits.forEach(h => tbody.appendChild(createRow(h)));
+    }
+
+    function addHabit() {
+      const input = document.getElementById("habit-name");
+      const name = input.value.trim();
+      if (!name) return;
+      const newHabit = { name, days: [false, false, false, false, false, false, false] };
+      habits.push(newHabit);
+      saveHabits(habits);
+      renderHabits();
+      input.value = "";
+    }
+
+    // Inicial
+    renderHabits();
+  </script>
 </body>
 </html>
